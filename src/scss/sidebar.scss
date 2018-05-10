@@ -1,0 +1,204 @@
+#sidebar{
+    height: 100%;
+    .menu-container{
+        position: relative;
+    }
+    .dropdown-menu-toggle{
+        background: none;
+        border: 1px solid $grey;
+        border-radius: 2.2rem;
+        outline: none;
+        width: 100%;
+        cursor: pointer;
+        padding: 7px 20px;
+        text-align: left;
+        position: relative;
+        .text{
+            position: relative;
+            >.badge{
+                padding: 5px 7px;
+                background-color: $purpure;
+                position: absolute;
+                right: -16px;
+                border-radius: 50%;
+                color: $white;
+                top: -14px;
+            }
+        }
+        &[aria-expanded="true"]{
+            &:after{
+                transform: rotate(180deg);
+            }
+        }
+        &:after{
+            float: right;
+            margin-top: 10px;
+            color: $dark-grey;
+        }
+    }
+    .dropdown-menu{
+        border-color: $grey;
+        width: 100%;
+        border-radius: 0.6rem;
+        padding: 10px 20px;
+        li{
+            .badge{
+                display: none;
+            }
+            &.active{
+                border: none !important;
+                a{
+                    color: $purpure !important;
+                }
+            }
+        }
+    }
+    
+    .menu{
+        a{
+            display: inline-block;
+            padding: 7px;
+        }
+        li{
+            margin: 17px 0;
+            position: relative;
+            .badge{
+                padding: 5px 7px;
+                background-color: $purpure;
+                position: absolute;
+                right: 15px;
+                z-index: 1;
+                border-radius: 50%;
+                color: #fff;
+                top: -8px;
+            }
+            &.active{
+                &:after{
+                    content: "";
+                    display: block;
+                    border: 1px solid $grey;
+                    border-radius: 2.2rem;
+                    height: 100%;
+                    position: absolute;
+                    width: 100%;
+                    top: 0;
+                    left: -20px;
+                }
+                
+                a{
+                    color: $dark;
+                }
+            }
+        }
+    }
+    .address-item{
+        font-weight: 500;
+        padding: 32px 0;
+        a{
+            display: inline-block;
+        }
+        .link-item{
+            font-weight: 600;
+            position: relative;
+            padding-right: 30px;
+            float: right;
+            &:hover{
+                .icon{
+                    background: $purpure;
+                    color: $white;
+                }
+            }
+            .icon{
+                color: $purpure;
+                height: 20px;
+                width: 20px;
+                display: inline-block;
+                border-radius: 50%;
+                border: 1px solid;
+                transition: 0.3s;
+                position: absolute;
+                top: 3px;
+                right: 0;
+                border-color: $purpure;
+                transition: 0.3s;
+            }
+            i{
+                position: absolute;
+                left: 7px;
+                top: 1px;
+            }
+        }
+    }
+}
+
+@media(min-width: 768px){
+    #sidebar{
+        padding-right: 26px;
+        border-right: 1px solid $light-grey;
+        .address-item{
+            border-top: 1px solid $light-grey;
+        }
+    }
+    
+}
+    
+@media(max-width: 767px){
+    #sidebar{
+        .address-item-container{
+            >*{
+                position: relative;
+                &:nth-child(odd){
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        top: 25%;
+                        border-right: 1px solid $grey;
+                        height: 50%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .menu{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 99;
+            display: none;
+            float: left;
+            min-width: 10rem;
+            padding: .5rem 0;
+            margin: .125rem 0 0;
+            font-size: 1rem;
+            color: #212529;
+            text-align: left;
+            list-style: none;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.15);
+            border-radius: .65rem;
+            width: 100%;
+            &.active{
+                display: block;
+            }
+            li{
+                padding: 0 15px;
+                margin: 6px 0;
+                &.active{
+                    a{
+                        color: $purpure;
+                    }
+                    &:after{
+                        border: none;
+                    }
+                    .badge{
+                        display: none;
+                    }
+                }
+            }
+        }
+        
+    }
+}

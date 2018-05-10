@@ -1,0 +1,111 @@
+#events{
+    padding: 20px 0;
+    background-color: $light-grey;
+    line-height: 1.3;
+    .date{
+        text-transform: uppercase;
+    }
+    .text{
+        margin-top: 6px;
+    }
+    .badge{
+        font-size: 0.7rem;
+        padding: 3px 6px;
+        border-radius: 0.1rem;
+        background-color: $white;
+        &.action{
+            margin-left: 8px;
+            position: relative;
+            background-color: $lime;
+            >.ribbon-left,
+            >.ribbon-right{
+                &:before,
+                &:after{
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                }
+            }
+            >.ribbon-left{
+                &:before{
+                    top: 0;
+                    left: -6px;
+                    border-top: 9px solid $lime;
+                    border-left: 7px solid transparent;
+                }
+                &:after{
+                    bottom: 0;
+                    left: -6px;
+                    border-bottom: 9px solid $lime;
+                    border-left: 7px solid transparent;
+                }
+            }
+            >.ribbon-right{
+                &:before{
+                    top: 0;
+                    right: -6px;
+                    border-top: 9px solid $lime;
+                    border-right: 7px solid transparent;
+                }
+                &:after{
+                    bottom: 0;
+                    right: -6px;
+                    border-bottom: 9px solid $lime;
+                    border-right: 7px solid transparent;
+                }
+            }
+        }
+    }
+    .swiper-pagination{
+        bottom: 0;
+        .swiper-pagination-bullet{
+            opacity: 1;
+            background: $dark;
+            width: 10px;
+            height: 10px;
+        }
+        .swiper-pagination-bullet-active{
+            background: $dark-grey;
+        }
+    }
+}
+
+#footer{
+    padding: 40px 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    .social{
+        font-size: 1.2rem;
+    }
+    .fa-angle-down{
+        float: right;
+        font-size: 24px;
+    }
+    [data-toggle="collapse"]{
+        &:not(.collapsed){
+            .fa-angle-down{
+                transform: rotate(180deg);
+            } 
+        }
+    }
+}
+
+@media(min-width: 768px){
+    .swiper-pagination{
+         display: none;
+    }
+}
+
+@media(max-width: 576px){
+    #footer{
+        h6{
+            padding-top: 8px;
+            border-bottom: 1px solid $grey;
+            padding-bottom: 14px;
+        }
+        .section-title{
+            text-decoration: none !important;
+        }
+    }
+}

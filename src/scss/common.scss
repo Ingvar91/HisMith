@@ -1,0 +1,87 @@
+@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../../node_modules/swiper/dist/css/swiper.min.css';
+
+$purpure: #893b67;
+$dark-purpure: #59133B;
+$grey: #ddddde;
+$light-grey: #edeeee;
+$dark-grey: #999999;
+$dark: #414141;
+$white: #fff;
+$lime: #c5e71b;
+
+@import './header';
+@import './news';
+@import './sidebar';
+@import './footer';
+@import './helper';
+
+@font-face {
+    font-family: "Vida 31 Pro";
+    src: url("../fonts/Vida_31_Pro/vida31pro.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Vida 33 Pro";
+    src: url("../fonts/Vida_33_Pro/vida33pro.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html{
+    font-family: "Vida 31 Pro", Helvetica, sans-serif;
+    font-size: 16px;
+    color: $dark ;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: "Vida 33 Pro" !important;
+    color: $dark;
+}
+
+body{
+    color: $dark ;
+}
+
+#wrap{
+    a{
+        color: $purpure;
+        transition: color 0.3s;
+        &:hover{
+            color: $dark-purpure; 
+        }
+    }
+}
+
+#cap,
+#content,
+#events,
+#footer{
+    .container{
+        max-width: 1240px;
+    }
+}
+
+#content{
+    margin: 70px 0;
+}
+
+.owl-dot{
+    >span{
+        color: $dark !important;
+    }
+}
+
+.badge{
+    font-weight: 500 !important;
+}
+
+@media(max-width: 992px){
+    .container{
+        padding: 0 25px !important;
+    }
+}

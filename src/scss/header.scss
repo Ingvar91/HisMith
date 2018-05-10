@@ -1,0 +1,274 @@
+#header{
+    height: 90px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    .container{
+        max-width: 1340px;
+    }
+    .call-button{
+        height: 32px;
+        width: 40px;
+        position: relative;
+        .icon{
+            background: url(../img/icons/phone.png);
+            background-repeat: no-repeat;
+        }
+        >a{
+            height: 38px;
+            width: 38px;
+            display: inline-block;
+            background-color: $purpure;
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+            text-align: center;
+            padding: 1px;
+            font-size: 1.45rem;
+            .fa{
+                color: $white;
+            }
+            &:before,
+            &:after{
+                content: '';
+                position: absolute;
+                height: 38px;
+                width: 38px;
+                top: 0;
+                left: 0;
+                animation: pulse-call-phone 2.8s linear infinite;
+                opacity: 0;
+                border-radius: 50%;
+                display: block;
+                border: 1px solid $purpure;
+                backface-visibility: hidden;
+            }
+            &:after{
+                animation-delay: 0.7s;
+            }
+        }
+    }
+    .collapse-nav{
+        .navbar-brand{
+            display: none;
+        }
+    }
+    .dropdown-profile{
+        margin: auto 5px auto 18px;
+        border: 1px solid #ddddde;
+        border-radius: 2.2rem;
+        height: 30px;
+        padding: 0 10px;
+        .dropdown-toggle{
+            color: $dark;
+            text-transform: none;
+        }
+        .dropdown-menu{
+            top: 8px !important;
+            left: -10px !important;
+            a{
+                color: $dark;
+            }
+        }
+    }
+    .nav-list{
+        display: inline-flex;
+        >li{
+            margin-right: 20px;
+        }
+    }
+    .comparison{
+        position: relative;
+        text-decoration: none;
+        .badge{
+            padding: 3px 5px;
+            background-color: $purpure;
+            position: absolute;
+            left: 8px;
+            border-radius: 50%;
+            color: $white;
+            top: -5px;
+            font-size: 70%;
+        }
+        .icon{
+            margin-right: 6px;
+        }
+    }
+    .phone-number{
+        margin: auto 24px auto auto;
+        a{
+            color: $dark;
+            &:hover{
+                color: inherit;
+            }
+        }
+    }
+    .navbar-brand{
+        display: block;
+        margin-right: 35px;
+    }
+    .collapse-nav-contacts{
+        display: none;
+        .call-button{
+            >a{
+                height: 45px;
+                width: 45px;
+                font-size: 1.73rem;
+                &:before,
+                &:after{
+                    height: 45px;
+                    width: 45px;
+                }
+            }
+        }
+    }
+}
+
+#cap{
+    height: 230px;
+    background: url(../img/bg-cap.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    .container{
+        height: 100%;
+        position: relative;
+    }
+    .text{
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        background-color: $white;
+        padding: 10px 20px;
+    }
+    .address{
+        display: inline-block;
+        background-color: $white;
+        position: absolute;
+        top: -30px;
+        color: $dark-grey;
+        font-size: 1.25rem;
+        margin-bottom: .5rem;
+        font-weight: 500;
+        font-family: 'Vida 33 Pro';
+        left: 0;
+        padding: 10px 20px;
+    }
+    .title{
+        >h1{
+            font-size: 3rem;
+            margin-bottom: 0;
+        }
+    }
+}
+
+#close-nav-button{
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+    display: none;
+    &:after,
+    &:before{
+        content: '';
+        height: 3px;
+        width: 30px;
+        display: block;
+        background-color: $purpure;
+        position: absolute;
+        top: 10px;
+    }
+    &:after{
+        transform: rotate(45deg);
+    }
+    &:before{
+        transform: rotate(-45deg);
+    }
+}
+
+#open-nav-button{
+    margin: auto 30px;
+    width: 32px;
+    padding: 0;
+    outline: none;
+    display: none;
+    >span{
+        display: block;
+        background-color: $purpure;
+        height: 3px;
+        margin-bottom: 6px;
+    }
+}
+
+@keyframes pulse-call-phone {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.9);
+        opacity: 0;
+    }
+}
+
+@media(max-width: 1200px){
+    #header{
+        .nav-list{
+            >li{
+                margin-right: 10px !important;
+            }
+        }
+        .navbar-brand {
+            margin-right: 15px !important;
+        }
+    }
+}
+
+@media(max-width: 768px){
+    #open-nav-button,
+    #close-nav-button{
+        display: inline-block;
+    }
+    #header{
+        .collapse-nav{
+            font-size: 1.5rem;
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            z-index: 999;
+            background-color: $white;
+            width: 100%;
+            height: 100%;
+            transition: 0.4s;
+            overflow-y: auto;
+            .collapse-nav-content{
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                display: flex;
+            }
+            &.active{
+                left: 0;
+            }
+            .navbar-brand{
+                display: block;
+            }
+            .nav-list{
+                display: block;
+                margin-top: 20px;
+                >li{
+                    margin-bottom: 25px;
+                }
+            }
+        }
+        .collapse-nav-contacts{
+            display: block;
+        }
+    }
+}
